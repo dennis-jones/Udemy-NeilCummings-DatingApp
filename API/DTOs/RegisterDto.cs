@@ -4,11 +4,12 @@ namespace API.DTOs
 {
   public class RegisterDto
   {
-    [Required(ErrorMessage = "{0}: Required")]
+    [Display(Name="User Name")]
+    [Required(ErrorMessage = "{0}: required")]
     public string Username { get; set; }
 
-    [Display(Name="PW")]
-    [MinLength(6, ErrorMessage = "{0}: must be at least {1} characters long.")]
+    [Required(ErrorMessage = "{0}: required")]
+    [StringLength(8, MinimumLength = 4, ErrorMessage = "{0}: must be between {2} and {1} characters long")]
     public string Password { get; set; }
 
     // [EmailAddress]

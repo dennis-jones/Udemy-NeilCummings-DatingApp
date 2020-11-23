@@ -1,4 +1,5 @@
 using API.Extensions;
+using API.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +19,7 @@ namespace API
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddApplicationServices(_config);
+      services.AddApplicationServices(_config);  //swagger, global Authorize, token, dbcontext, etc
       services.AddControllers();
       services.AddCors();
       services.AddIdentityServices(_config);
@@ -27,9 +28,11 @@ namespace API
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
+      app.UseMiddleware<ExceptionMiddleware>();
+
       if (env.IsDevelopment())
       {
-        app.UseDeveloperExceptionPage();
+        // app.UseDeveloperExceptionPage(); // use the above instead to intercept all server errors: app.UseMiddleware<ExceptionMiddleware>();
         app.UseSwagger();
         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
       }

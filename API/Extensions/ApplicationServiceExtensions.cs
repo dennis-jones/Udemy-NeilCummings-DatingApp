@@ -26,13 +26,13 @@ namespace API.Extensions
       });
       
       // all endpoints (unless decorated with the [Allow Anonymous] attribute) require authentication
-      services.AddMvc(config =>
-      {
-        var policy = new AuthorizationPolicyBuilder()
-                          .RequireAuthenticatedUser()
-                          .Build();
-        config.Filters.Add(new AuthorizeFilter(policy));
-      });
+      // services.AddMvc(config =>
+      // {
+      //   var policy = new AuthorizationPolicyBuilder()
+      //                     .RequireAuthenticatedUser()
+      //                     .Build();
+      //   config.Filters.Add(new AuthorizeFilter(policy));
+      // });
 
       return services;
     }
