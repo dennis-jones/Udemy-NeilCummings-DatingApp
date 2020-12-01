@@ -44,3 +44,33 @@
   border-top: 1px solid #eee;
   padding: 15px 0;
 }
+
+// load-awesome spinner colours
+.la-ball-atom {
+  color: #ff0;
+}
+.la-ball-atom > div:nth-child(1) {
+  color: #ff0;
+}
+.la-ball-atom > div:nth-child(2) {
+  color: #00f;
+}
+.la-ball-atom > div:nth-child(3) {
+  color: #0f0;
+}
+.la-ball-atom > div:nth-child(4) {
+  color: #f00;
+}
+
+// .la-ball-atom {
+//   color: #79bbb5;
+// }
+// .la-ball-atom > div:nth-child(1) {
+//   color: #f4696b;
+// }
+// .la-ball-atom > div:nth-child(2) {
+//   color: #87c4a3;
+// }
+// .la-ball-atom > div:nth-child(3) {
+//   color: #fec54f;
+// }
